@@ -1,0 +1,14 @@
+# Ignore Docker volumes and system files
+mariadb_data/
+*.log
+*.pid
+
+# Ignore system and editor-specific files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+
+# Node/npm or Python if you use them
+node_modules/

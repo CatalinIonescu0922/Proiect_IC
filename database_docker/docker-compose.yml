@@ -1,0 +1,29 @@
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-gym-buddy 
+    restart : always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER : ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+    ports: 
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-gym-buddy
+    restart: always
+    environment:
+       PMA_HOST: mariadb
+       PMA_PORT: 3306
+       PMA_USER: ${MYSQL_USER}
+       PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8080:80"
+volumes:
+  mariadb_data:
