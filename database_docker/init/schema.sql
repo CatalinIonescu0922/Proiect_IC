@@ -8,7 +8,7 @@ CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    birth_day DATE,
+    birth_day DATE, 
     PR_arm INT,
     PR_bench_press INT,
     PR_leg_press INT,
