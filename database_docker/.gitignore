@@ -4,6 +4,8 @@ Thumbs.db
 *.swp
 *.swo
 *.bak
-
+#log files from docker runtime
+mariadb_data/
+*.log
 # Node/npm or Python if you use them
 node_modules/
