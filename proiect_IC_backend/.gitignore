@@ -1,0 +1,40 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Environment Variables ===
+.env
+.env.*   # if you use .env.dev, .env.prod, etc.
+
+# === Logs ===
+logs/
+*.log
+debug.log
+
+# === OS Specific ===
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# === Editor/IDE Files ===
+.vscode/
+.idea/
+*.swp            # Vim
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# === Test Coverage ===
+coverage/
+.nyc_output/
+
+# === Build Outputs ===
+dist/
+build/
+tmp/
+.cache/
+
+# === Others (Optional) ===
+*.local
+*.bak

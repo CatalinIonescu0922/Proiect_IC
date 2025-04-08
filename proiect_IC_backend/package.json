@@ -1,0 +1,24 @@
+{
+  "name": "proiect_ic",
+  "version": "1.0.0",
+  "description": "proiect_ic_anul3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatalinIonescu0922/Proiect_IC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatalinIonescu0922/Proiect_IC/issues"
+  },
+  "homepage": "https://github.com/CatalinIonescu0922/Proiect_IC#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  }
+}
