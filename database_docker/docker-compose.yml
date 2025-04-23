@@ -25,5 +25,5 @@ services:
        PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "8080:80"
-volumes:
+volumes: 
   mariadb_data:
