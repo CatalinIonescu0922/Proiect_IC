@@ -1,65 +1,77 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="center-container">
-
 <div class="container">
-    <form action="#" method="post">
-        <h2>Register</h2>
-        <div class="input-group">
-            <label for="full-name">First name</label>
-            <input type="text" id="first-name" name="first-name" required>
-        </div>
-        <div class="input-group">
-            <label for="full-name">Last name</label>
-            <input type="text" id="last-name" name="last-name" required>
-        </div>
-        <div class="input-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="input-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-        </div>
-        <div class="input-group">
-            <label for="gender">Gender</label>
-            <select id="gender" name="gender">
-                <option value="">Select...</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label for="birth-date">Birth Date</label>
-            <input type="date" id="birth-date" name="birth-date" required>
-        </div>
-        <div class="input-group">
-            <label for="description">Description</label>
-            <input type="description" id="description" name="description" required>
-        </div>
-        <div class="input-group">
-            <label for="description">Personal record - Arm</label>
-            <input type="description" id="description" name="description" required>
-        </div>
-        <div class="input-group">
-            <label for="description">Personal record - Bench press</label>
-            <input type="description" id="description" name="description" required>
-        </div>
-        <div class="input-group">
-            <label for="description">Personal record - Leg press</label>
-            <input type="description" id="description" name="description" required>
-        </div>
-        <div class="input-group checkbox-group">
-            <input type="checkbox" id="terms" name="terms">
-            <label for="terms">I agree to the Terms and Conditions</label>
-        </div>
-        <button type="submit">Register</button>
-    </form>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <h2>Register</h2>
+
+    <div class="input-group">
+      <label for="first-name">First name</label>
+      <input type="text" id="first-name" name="first-name" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="last-name">Last name</label>
+      <input type="text" id="last-name" name="last-name" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" ngModel required>
+        <option value="">Select...</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="birth-date">Birth Date</label>
+      <input type="date" id="birth-date" name="birth-date" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="pr-arm">Personal record - Arm</label>
+      <input type="number" id="pr-arm" name="pr-arm" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="pr-bench-press">Personal record - Bench press</label>
+      <input type="number" id="pr-bench-press" name="pr-bench-press" ngModel required>
+    </div>
+
+    <div class="input-group">
+      <label for="pr-leg-press">Personal record - Leg press</label>
+      <input type="number" id="pr-leg-press" name="pr-leg-press" ngModel required>
+    </div>
+
+    <div class="input-group checkbox-group">
+      <input type="checkbox" id="terms" name="terms" ngModel required>
+      <label for="terms">I agree to the Terms and Conditions</label>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
 </div>
 </div>
 
