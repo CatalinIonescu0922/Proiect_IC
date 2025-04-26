@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 
 export class ContentComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   onLogin(): void {
     this.router.navigate(["/login"]);
   }
 }
+

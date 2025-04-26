@@ -6,9 +6,9 @@ import { MakeFriendsComponent } from './make-friends/make-friends.component';
 import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
-    {path : "" , component : HomeComponentComponent},
-    {path : "login" , component : LoginComponent},
-    {path: "login", children :[{path: "registerNow", component : RegisterNowComponent}]},
-    {path: "makeFriends", component: MakeFriendsComponent},
-    {path: "profile", component: ProfileComponent}
+  { path: "", component: HomeComponentComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register-now", component: RegisterNowComponent },
+  { path: "makeFriends", component: MakeFriendsComponent },
+  { path: "profile", component: ProfileComponent }
 ];
