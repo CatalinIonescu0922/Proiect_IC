@@ -1,12 +1,12 @@
 // backend/login/auth.js
 
-import dotenv from 'dotenv'
+
 import express from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import config_obj from '../config/env.js'
 import db from '../config/dbconnect.js'
 const router = express.Router();
-dotenv.config();
 
 // montat în server.js cu:
 //    app.use('/login', require('./login/auth'));
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
     console.log('Attempt login:', email);
 
     // 1) Găsește user-ul după email
-    const users = await db.query(
+    const users = await db.pool.query(
       'SELECT * FROM `Users` WHERE `email` = ?',
       [email]
     );
@@ -34,21 +34,22 @@ router.post('/', async (req, res) => {
     }
 
     // 3) Ia rolul user-ului din user_roles (toate literele mici)
-    const roles = await db.query(
+    const role = await db.pool.query(
       `SELECT r.*
          FROM Roles r
-         JOIN user_roles ur ON ur.role_id = r.id
+         JOIN User_Roles ur ON ur.role_id = r.id
         WHERE ur.user_id = ?`,
       [user.id]
     );
-    if (roles.length === 0) {
+    console.log(role);
+    if (role.length === 0) {
       return res
         .status(500)
         .json({ message: 'User has no role assigned.' });
     }
 
     // 4) Ia permisiunile rolului din Role_permisions și Permisions
-    // const perms = await db.query(
+    // const perms = await db.pool.query(
     //   `SELECT p.name
     //      FROM Permisions p
     //      JOIN Role_permisions rp ON rp.permision_id = p.id
@@ -61,9 +62,9 @@ router.post('/', async (req, res) => {
     const payload = {
       id:          user.id,
       email:       user.email,
-      roles: role
+      role: role
     };
-    const token = jwt.sign(payload, process.env.SECRET_KEY, {
+    const token = jwt.sign(payload, config_obj.secret_key, {
       expiresIn: '1h'
     });
 

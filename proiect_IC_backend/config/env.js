@@ -9,6 +9,7 @@ const config_obj = {
     db_password : process.env.MYSQL_PASSWORD,
     front_end_url : process.env.FRONT_END_URL,
     db_host : process.env.MYSQL_HOST,
-    backend_port : process.env.BACKEND_PORT
+    backend_port : process.env.BACKEND_PORT,
+    secret_key : process.env.SECRET_KEY
 }
-export default config_obj;
+export default config_obj

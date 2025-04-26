@@ -12,7 +12,7 @@ interface LoginData {
 })
 export class LoginService {
 
-  private apiUrl = 'http://localhost:8000/login'; // adapt if needed
+  private apiUrl = 'http://localhost:3000/login'; // adapt if needed
 
   constructor(private http: HttpClient) {}
 

@@ -20,7 +20,7 @@ interface RegisterData {
 })
 export class RegisterService {
 
-  private apiUrl = 'http://localhost:3000/api/register'; // adapt if your route is different
+  private apiUrl = 'http://localhost:3000/register-now'; // adapt if your route is different
 
   constructor(private http: HttpClient) {}
 

@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     const { email, password, first_name, last_name,birth_day , PR_arm , PR_bench_press, PR_leg_press,description,gender } = req.body;
 
     // 1. Verifică dacă există deja user
-    const existing = await db.query(
+    const existing = await db.pool.query(
       'SELECT id FROM Users WHERE email = ?',
       [email]
     );
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     const hashed = await bcrypt.hash(password, salt);
 
     // 3. Inserează user-ul cu firstName și lastName
-    const info = await db.query(
+    const info = await db.pool.query(
       `INSERT INTO Users (email, password_hash, first_name, last_name , birth_day , PR_arm , PR_bench_press, PR_leg_press,description,gender)
        VALUES (?, ?, ?, ?,?, ?, ?, ?, ?, ?)`,
       [email, hashed, first_name, last_name , birth_day , PR_arm , PR_bench_press, PR_leg_press,description,gender]
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 
     // 4. Inserează rolul implicit
     const defaultRoleId = 2;
-    await db.query(
+    await db.pool.query(
       `INSERT INTO User_Roles (user_id, role_id)
        VALUES (?, ?)`,
       [newUserId, defaultRoleId]
