@@ -12,10 +12,10 @@ const Router = express.Router()
 Router.use("/register-now", createAccount)
 Router.use("/login" , loginAcount);
 
-// app.use(cors({
-//   origin: config_obj.front_end_url, // ✅ your frontend address here
-//   credentials: true, // ✅ if you're using cookies, sessions, or auth headers
-// }));
+app.use(cors({
+  origin: config_obj.front_end_url, // ✅ your frontend address here
+  credentials: true, // ✅ if you're using cookies, sessions, or auth headers
+}));
 
 app.listen(config_obj.backend_port, ()=>{
     console.log(`app listen on port ${config_obj.backend_port}`)
