@@ -1,6 +1,3 @@
-// backend/login/auth.js
-
-
 import express from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
@@ -8,9 +5,6 @@ import config_obj from '../config/env.js'
 import db from '../config/dbconnect.js'
 const router = express.Router();
 
-// montat în server.js cu:
-//    app.use('/login', require('./login/auth'));
-// deci răspunde la POST http://localhost:8000/login
 router.post('/', async (req, res) => {
   try {
     const { email, password } = req.body;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RegisterService } from '../register.service';
+import { RegisterService } from '../services/register.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';

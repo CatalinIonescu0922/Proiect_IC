@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../login.service';
+import { LoginService } from '../services/login.service'
 import { Router } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FooterComponent,NavBarComponent,FormsModule,HttpClientModule],
+  imports: [FooterComponent,NavBarComponent,FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -27,7 +26,7 @@ export class LoginComponent {
     this.loginService.loginUser(loginData).subscribe({
       next: (res) => {
         alert('Login successful!');
-        this.router.navigate(['/home']); // or wherever you want to send user
+        this.router.navigate(['/profile']); // or wherever you want to send user
       },
       error: (err) => {
         alert('Login failed: ' + err.error.message);

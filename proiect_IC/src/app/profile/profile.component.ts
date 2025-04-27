@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
-
+import { RegisterData } from '../shared/registerData';
+import { ProfileService } from '../services/profile.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-profile',
-  imports: [NavBarComponent, FooterComponent],
+  imports: [NavBarComponent, FooterComponent,CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent implements OnInit{
-  userName: string = 'John Doe';
-  userBio: string = 'Passionate about fitness and teamwork!';
   
-  constructor() { }
-
+  constructor(private profileService : ProfileService) { }
+   userData : RegisterData | null = null;
   ngOnInit(): void {
+     this.profileService.getProfile()
+     .subscribe({
+        next : (data) => this.userData = data,
+        error : (err) => console.error('Failed to fetch profile', err)
+     });
   }
-
- 
-
 }

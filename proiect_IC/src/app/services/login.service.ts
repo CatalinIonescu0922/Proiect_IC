@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-interface LoginData {
-  email: string;
-  password: string;
-}
+import { enviroment } from './shared/enviroment';
+import { LoginData } from './shared/login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private apiUrl = 'http://localhost:3000/login'; // adapt if needed
+  private apiUrl = enviroment.backend_api + "/login";
 
   constructor(private http: HttpClient) {}
 

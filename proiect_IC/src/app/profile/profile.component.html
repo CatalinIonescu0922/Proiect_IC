@@ -1,14 +1,35 @@
 <app-nav-bar></app-nav-bar>
-<div class="profile-container">
-    <div class="profile-header">
-        <img src="../../assets/img/Capture.JPG" alt="User Photo" class="profile-photo">
-        <h1>{{ userName }}</h1>
+<div *ngIf="userData" class="profile-card">
+  <h2>{{ userData.first_name }} {{ userData.last_name }}</h2>
+  <p><strong>Email:</strong> {{ userData.email }}</p>
+  <p><strong>Gender:</strong> {{ userData.gender }}</p>
+  <p><strong>Birthday:</strong> {{ userData.birth_day }}</p>
+
+  <div class="pr-section">
+    <h3>Personal Records (PR)</h3>
+    <p><strong>Arm Curl:</strong> {{ userData.PR_arm }} kg</p>
+    <p><strong>Bench Press:</strong> {{ userData.PR_bench_press }} kg</p>
+    <p><strong>Leg Press:</strong> {{ userData.PR_leg_press }} kg</p>
+  </div>
+
+  <div class="description-section">
+    <h3>About Me</h3>
+    <p>{{ userData.description }}</p>
+  </div>
+
+  <div class="photos-section" *ngIf="userData.photos.length > 0">
+    <h3>My Photos</h3>
+    <div class="photos-gallery">
+      <img *ngFor="let photo of userData.photos"
+           [src]="'http://localhost:8000/uploads/' + photo" 
+           alt="User photo"
+           class="photo">
     </div>
-    <div class="profile-content">
-        <p>{{ userBio }}</p>
-        <h2>Interests</h2>
-        
-    </div>
+  </div>
+</div>
+
+<div *ngIf="!userData" class="loading">
+  Loading profile...
 </div>
 
 <app-footer></app-footer>
