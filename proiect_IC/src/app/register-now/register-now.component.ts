@@ -3,7 +3,7 @@ import { RegisterService } from '../services/register.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-now',
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterNowComponent {
 
-  constructor(private registerService: RegisterService) {}
+  constructor(private registerService: RegisterService , private router : Router) {}
 
   onSubmit(form: any) {
     const formData = {
@@ -32,6 +32,7 @@ export class RegisterNowComponent {
     this.registerService.registerUser(formData).subscribe({
       next: (response) => {
         alert('Account created successfully!');
+        this.router.navigate(['/login']);
         console.log(response);
       },
       error: (error) => {

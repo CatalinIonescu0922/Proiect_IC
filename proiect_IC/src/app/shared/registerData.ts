@@ -8,5 +8,5 @@ export interface RegisterData {
   PR_leg_press: number;
   description: string;
   gender: string;
-  photos : string[];
+//   photos : string[];
 }
