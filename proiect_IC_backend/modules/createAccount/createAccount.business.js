@@ -19,7 +19,7 @@ export async function createAccountBusiness(userData) {
     last_name,
     birth_day,
     PR_arm,
-    PR_bench_press,
+    PR_bench_press, 
     PR_leg_press,
     description,
     gender

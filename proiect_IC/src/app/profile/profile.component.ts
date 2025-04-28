@@ -20,5 +20,7 @@ export class ProfileComponent implements OnInit{
         next : (data) => this.userData = data,
         error : (err) => console.error('Failed to fetch profile', err)
      });
+     console.log(this.userData?.PR_arm);
+     console.log(this.userData?.PR_leg_press);
   }
 }
