@@ -1,11 +1,12 @@
-<!-- navbar.component.html -->
-<nav>
+<nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="nav-link">Fitness Buddy</a>
-        <a href="/profile" routerLink="/profile" routerLinkActive="active">Profile</a>
-        <a href="#" class="nav-link">Friends</a>
-        <a href="/makeFriends" routerLink="/makeFriends" routerLinkActive="active">Find new friends</a>
-        <a href="#" class="nav-link">About us</a>
-
+      <a (click)="changeToHomePage()" class="logo">Fitness Buddy</a>
+      <div class="nav-links">
+        <a (click)="changeToProfile()">Profile</a>
+        <a (click)="changeToGyms()">Gyms</a>
+        <a (click)="changeToMake_Friends()">Find New Friends</a>
+        <a routerLink="/about" routerLinkActive="active">About Us</a>
+      </div>
     </div>
-</nav>
+  </nav>
+  
