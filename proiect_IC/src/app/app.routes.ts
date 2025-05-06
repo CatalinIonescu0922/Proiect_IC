@@ -5,6 +5,7 @@ import { RegisterNowComponent } from './register-now/register-now.component';
 import { MakeFriendsComponent } from './make-friends/make-friends.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GymsComponent } from './gyms/gyms.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponentComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: "register-now", component: RegisterNowComponent },
   { path: "makeFriends", component: MakeFriendsComponent },
   { path: "profile", component: ProfileComponent },
-  {path: "gyms",component:GymsComponent}
+  {path: "gyms",component:GymsComponent},
+  { path: "about-us",component:AboutUsComponent}
 ];

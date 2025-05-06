@@ -23,4 +23,8 @@ export class NavBarComponent {
   changeToHomePage() {
     this.router.navigate(["/"]); // make sure route matches
   }
+
+  changeToAbout_Us() {
+    this.router.navigate(["/about-us"]); // make sure route matches
+  }
 }

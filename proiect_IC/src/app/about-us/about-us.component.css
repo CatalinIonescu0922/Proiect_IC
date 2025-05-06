@@ -1,0 +1,72 @@
+.about-hero {
+    background: linear-gradient(to right, #e0d9d0, #c5beb6);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #2c2c2c;
+  }
+  
+  .hero-text p {
+    font-size: 20px;
+    color: #4e4e4e;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .about-mission, .call-to-action {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f6f3;
+  }
+  
+  .about-mission h2, .call-to-action h2, .featured-gyms h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #2e2e2e;
+  }
+  
+  .about-mission p, .call-to-action p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+  }
+  
+  
+  .call-to-action button {
+    margin-top: 20px;
+    background-color: #8c7f76;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .call-to-action button:hover {
+    background-color: #a39383;
+  }
+  
+  @media (max-width: 768px) {
+    .gym-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hero-text h1 {
+      font-size: 36px;
+    }
+  
+    .about-mission h2,
+    .featured-gyms h2,
+    .call-to-action h2 {
+      font-size: 24px;
+    }
+  }
+  
