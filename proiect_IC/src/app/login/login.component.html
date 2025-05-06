@@ -1,17 +1,31 @@
 <app-nav-bar></app-nav-bar>
-<div class="mega-container">
-  <div class="login-container">
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-      <h2>Welcome Back!</h2>
+
+<div class="login-page">
+  <div class="login-left">
+    <h1>Welcome Back 👋</h1>
+    <p>Log in to continue your fitness journey with Fitness Buddy.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Fitness Icon" />
+  </div>
+
+  <div class="login-right">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="login-form">
+      <h2>Login</h2>
+
       <div class="input-group">
-        <input type="email" id="email" name="email" required placeholder="Enter your email" ngModel>
+        <input type="email" id="email" name="email" required placeholder=" " ngModel>
+        <label for="email">Email</label>
       </div>
+
       <div class="input-group">
-        <input type="password" id="password" name="password" required placeholder="Enter your password" ngModel>
+        <input type="password" id="password" name="password" required placeholder=" " ngModel>
+        <label for="password">Password</label>
       </div>
+
       <button type="submit">Sign In</button>
     </form>
+
+    <button class="register-btn" (click)="changeToCreate_Account()">No Account? Register here</button>
   </div>
-  <button class="btn" (click)="changeToCreate_Account()">No Account? Register here</button>
 </div>
+
 <app-footer></app-footer>

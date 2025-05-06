@@ -1,78 +1,82 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="center-container">
-<div class="container">
-  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-    <h2>Register</h2>
+<div class="register-page">
+  <div class="form-container">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+      <h2>Create Your Account</h2>
 
-    <div class="input-group">
-      <label for="first-name">First name</label>
-      <input type="text" id="first-name" name="first-name" ngModel required>
-    </div>
+      <div class="form-row">
+        <div class="input-group">
+          <input type="text" id="first-name" name="first-name" ngModel required placeholder=" " />
+          <label for="first-name">First Name</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="last-name" name="last-name" ngModel required placeholder=" " />
+          <label for="last-name">Last Name</label>
+        </div>
+      </div>
 
-    <div class="input-group">
-      <label for="last-name">Last name</label>
-      <input type="text" id="last-name" name="last-name" ngModel required>
-    </div>
+      <div class="input-group">
+        <input type="email" id="email" name="email" ngModel required placeholder=" " />
+        <label for="email">Email</label>
+      </div>
 
-    <div class="input-group">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" ngModel required>
-    </div>
+      <div class="form-row">
+        <div class="input-group">
+          <input type="password" id="password" name="password" ngModel required placeholder=" " />
+          <label for="password">Password</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="confirm-password" name="confirm-password" ngModel required placeholder=" " />
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+      </div>
 
-    <div class="input-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" ngModel required>
-    </div>
+      <div class="form-row">
+        <div class="input-group">
+          <select id="gender" name="gender" ngModel required>
+            <option value="" disabled selected hidden>Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="gender">Gender</label>
+        </div>
 
-    <div class="input-group">
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" id="confirm-password" name="confirm-password" ngModel required>
-    </div>
+        <div class="input-group">
+          <input type="date" id="birth-date" name="birth-date" ngModel required />
+          <label for="birth-date">Birth Date</label>
+        </div>
+      </div>
 
-    <div class="input-group">
-      <label for="gender">Gender</label>
-      <select id="gender" name="gender" ngModel required>
-        <option value="">Select...</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
+      <div class="input-group">
+        <input type="text" id="description" name="description" ngModel required placeholder=" " />
+        <label for="description">About You</label>
+      </div>
 
-    <div class="input-group">
-      <label for="birth-date">Birth Date</label>
-      <input type="date" id="birth-date" name="birth-date" ngModel required>
-    </div>
+      <div class="form-row">
+        <div class="input-group">
+          <input type="number" id="pr-arm" name="pr-arm" ngModel required placeholder=" " />
+          <label for="pr-arm">PR - Arm (kg)</label>
+        </div>
+        <div class="input-group">
+          <input type="number" id="pr-bench-press" name="pr-bench-press" ngModel required placeholder=" " />
+          <label for="pr-bench-press">PR - Bench Press (kg)</label>
+        </div>
+        <div class="input-group">
+          <input type="number" id="pr-leg-press" name="pr-leg-press" ngModel required placeholder=" " />
+          <label for="pr-leg-press">PR - Leg Press (kg)</label>
+        </div>
+      </div>
 
-    <div class="input-group">
-      <label for="description">Description</label>
-      <input type="text" id="description" name="description" ngModel required>
-    </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" name="terms" ngModel required />
+        <label for="terms">I agree to the Terms and Conditions</label>
+      </div>
 
-    <div class="input-group">
-      <label for="pr-arm">Personal record - Arm</label>
-      <input type="number" id="pr-arm" name="pr-arm" ngModel required>
-    </div>
-
-    <div class="input-group">
-      <label for="pr-bench-press">Personal record - Bench press</label>
-      <input type="number" id="pr-bench-press" name="pr-bench-press" ngModel required>
-    </div>
-
-    <div class="input-group">
-      <label for="pr-leg-press">Personal record - Leg press</label>
-      <input type="number" id="pr-leg-press" name="pr-leg-press" ngModel required>
-    </div>
-
-    <div class="input-group checkbox-group">
-      <input type="checkbox" id="terms" name="terms" ngModel required>
-      <label for="terms">I agree to the Terms and Conditions</label>
-    </div>
-
-    <button type="submit">Register</button>
-  </form>
-</div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
 </div>
 
 <app-footer></app-footer>

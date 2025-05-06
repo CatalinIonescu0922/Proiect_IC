@@ -2,15 +2,5 @@
 <div>
     <h2>Gyms List</h2>
   
-    <div *ngIf="gyms.length === 0">
-      <p>No gyms found in the database.</p>
-    </div>
-  
-    <ul *ngIf="gyms.length > 0">
-      <li *ngFor="let gym of gyms">
-        {{ gym.name }} - {{ gym.location }}
-      </li>
-    </ul>
-  </div>
-  
+
 <app-footer></app-footer>
