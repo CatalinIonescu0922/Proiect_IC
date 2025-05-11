@@ -4,6 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { RegisterData } from '../shared/registerData';
 import { ProfileService } from '../services/profile.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   imports: [NavBarComponent, FooterComponent,CommonModule],
@@ -12,15 +13,17 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfileComponent implements OnInit{
   
-  constructor(private profileService : ProfileService) { }
+  constructor(private profileService : ProfileService , private router: Router) { }
    userData : RegisterData | null = null;
   ngOnInit(): void {
      this.profileService.getProfile()
      .subscribe({
         next : (data) => this.userData = data,
-        error : (err) => console.error('Failed to fetch profile', err)
+        error : (err) => {
+          if(err.status === 401){
+            this.router.navigate(["/login"])
+          }
+        }
      });
-     console.log(this.userData?.PR_arm);
-     console.log(this.userData?.PR_leg_press);
   }
 }
