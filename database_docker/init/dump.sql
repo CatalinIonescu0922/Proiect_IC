@@ -84,7 +84,7 @@ CREATE TABLE `Gyms` (
   `name` varchar(100) NOT NULL,
   `location` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +93,19 @@ CREATE TABLE `Gyms` (
 
 LOCK TABLES `Gyms` WRITE;
 /*!40000 ALTER TABLE `Gyms` DISABLE KEYS */;
+INSERT INTO `Gyms` VALUES
+(1,'GymOne3','Aleea Studenților 1, Timișoara'),
+(2,'Gym One 2','Bulevardul Liviu Rebreanu 126, Timișoara'),
+(3,'Gym One 5','Calea Circumvalațiunii nr. 8-10, Timișoara'),
+(4,'CrossFit Timișoara','Strada Pestalozzi nr. 20, Timișoara'),
+(5,'Arena AquaSport','Calea Dorobanților nr. 92A, Timișoara'),
+(6,'Smartfit Studio','Bulevardul Cetății nr. 97, Timișoara'),
+(7,'Stay Fit Gym Giroc','Calea Timișoarei nr. 13, Giroc'),
+(8,'Stay Fit Gym Moșnița','Strada Florentina, Moșnița Nouă'),
+(9,'World Class Iulius Town','Strada Demetriade nr. 1, Timișoara'),
+(10,'Friends Arena','Strada Lacului nr. 1, Timișoara'),
+(11,'Kong Gym','Strada Simion Bărnuțiu nr. 1, Timișoara'),
+(12,'Haltere Club Timișoara','Strada Amforei nr. 1, Timișoara');
 /*!40000 ALTER TABLE `Gyms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-11 14:37:42
+-- Dump completed on 2025-05-11 16:14:54
