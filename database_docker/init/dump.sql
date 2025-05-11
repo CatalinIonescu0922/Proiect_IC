@@ -1,7 +1,7 @@
 /*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-11.7.2-MariaDB, for debian-linux-gnu (x86_64)
+-- MariaDB dump 10.19  Distrib 10.11.11-MariaDB, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: gym_buddy
+-- Host: 127.0.0.1    Database: gym_buddy
 -- ------------------------------------------------------
 -- Server version	11.7.2-MariaDB-ubu2404
 
@@ -14,7 +14,7 @@
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `Contacts`
@@ -196,7 +196,7 @@ CREATE TABLE `User_Roles` (
   KEY `role_id` (`role_id`),
   CONSTRAINT `User_Roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `User_Roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `Roles` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,6 +205,11 @@ CREATE TABLE `User_Roles` (
 
 LOCK TABLES `User_Roles` WRITE;
 /*!40000 ALTER TABLE `User_Roles` DISABLE KEYS */;
+INSERT INTO `User_Roles` VALUES
+(1,1,2),
+(2,2,2),
+(3,4,2),
+(4,5,2);
 /*!40000 ALTER TABLE `User_Roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +234,7 @@ CREATE TABLE `Users` (
   `gender` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,6 +243,11 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
+INSERT INTO `Users` VALUES
+(1,'Catalin','Ionescu','2025-04-08',34,123,154,'cata@gmail.com','$2b$10$pz1Be/i3clvfosb8KpdbzOLjW9USlg3/xnuKSdSpM/04OJsM/vc5i','lorem ipsom the fole the gtr','male'),
+(2,'Catalin','Ionescu','2025-04-08',34,123,154,'cata123@gmail.com','$2b$10$M9ft/KvgPNbUeMUB982LTOQ.4dgmEDu4c.KLAUZV.as1C8NBEfyzy','lorem ipsom the fole the gtr','male'),
+(4,'boss','boss','2025-04-09',43423,43434,656546,'boss@gmail.com','$2b$10$EQDxc/wwK0Cj35cggB6bKOIu.Bvt3pdIImcKBKgK9W0jW57jNirk6','heii its me','male'),
+(5,'chef','chef','2025-03-31',54,56,5645,'chef123@gmail.com','$2b$10$wOUN5W9FKwqubGrGZwDmT.0LeNbX6Y4g0a.CskS9izOMnDHat8epC','fsdfdf','female');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -248,6 +258,6 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-01  5:19:25
+-- Dump completed on 2025-05-11 14:37:42
