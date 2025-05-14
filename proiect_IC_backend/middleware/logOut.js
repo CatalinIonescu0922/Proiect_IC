@@ -1,10 +1,13 @@
+import express from "express"
+
+const router = express.Router();
 const logOutUser = (req,res)=>{
-    res.clearCokie(('auth_token'),{
+    res.clearCookie(('authToken'),{
         httpOnly : true,
-        secure: true,
+        secure: false,
         sameSite : 'Strict'
     });
     res.status(200).json({message : "User lohout succefull"});
 }
-
-export default logOutUser
+router.post("/",logOutUser)
+export default router

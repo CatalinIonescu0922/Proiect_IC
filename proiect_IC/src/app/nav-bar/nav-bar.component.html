@@ -6,6 +6,8 @@
         <a (click)="changeToGyms()">Gyms</a>
         <a (click)="changeToMake_Friends()">Find New Friends</a>
         <a (click)="changeToAbout_Us()">About Us</a>
+
+        <button *ngIf="isLoggedIn$ | async" (click)="logOut()" class="logout-btn">Logout</button>
       </div>
     </div>
   </nav>

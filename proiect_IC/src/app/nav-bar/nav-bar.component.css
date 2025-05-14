@@ -54,6 +54,41 @@
   border-radius: 2px;
 }
 
+.logout-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #3a3a3a;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+
+.logout-btn:hover {
+  color: #8c7f76;
+}
+
+.logout-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #8c7f76;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logout-btn:hover::after {
+  opacity: 1;
+}
+
+
+
 /* Responsive (stack vertically if needed) */
 @media (max-width: 768px) {
   .nav-container {
