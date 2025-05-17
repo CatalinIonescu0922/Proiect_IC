@@ -6,13 +6,14 @@ import { MakeFriendsComponent } from './make-friends/make-friends.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GymsComponent } from './gyms/gyms.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-
+import { GymUsersComponent } from './gym-users/gym-users.component';
 export const routes: Routes = [
   { path: "", component: HomeComponentComponent },
   { path: "login", component: LoginComponent },
   { path: "register-now", component: RegisterNowComponent },
   { path: "makeFriends", component: MakeFriendsComponent },
   { path: "profile", component: ProfileComponent },
-  {path: "gyms",component:GymsComponent},
+  {path: "gyms",component:GymsComponent} ,
+  {path : "gyms/:id",component:GymUsersComponent},
   { path: "about-us",component:AboutUsComponent}
 ];
