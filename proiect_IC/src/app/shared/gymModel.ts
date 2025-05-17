@@ -1,4 +1,5 @@
 export interface gymModel{
     name : string,
-    location : string
+    location : string,
+    id : number
 }

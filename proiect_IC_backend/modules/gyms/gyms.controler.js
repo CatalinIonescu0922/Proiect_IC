@@ -3,7 +3,6 @@ import { gymDetails } from "./gyms.business.js";
 export async function getGymsController(req , res ,next) {
     try{
         const gyms = await gymDetails();
-        console.log(gyms);
         res.status(200).json(gyms);
     } catch(err){
         console.error('Gyms can not be taken',err);
