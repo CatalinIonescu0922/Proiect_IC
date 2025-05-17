@@ -1,6 +1,14 @@
 <app-nav-bar></app-nav-bar>
-<div>
-    <h2>Gyms List</h2>
+<section class="gyms-section">
+    <h1>Gyms Near You</h1>
+    <p class="gyms-description">Explore available gyms in Timișoara and nearby locations where you can train with a buddy.</p>
   
+    <div class="gyms-list">
+      <div class="gym-card" *ngFor="let gym of gyms">
+        <h3>{{ gym.name }}</h3>
+        <p>{{ gym.location }}</p>
+      </div>
+    </div>
+  </section>
 
 <app-footer></app-footer>

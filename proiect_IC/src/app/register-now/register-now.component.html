@@ -40,14 +40,26 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-          <label for="gender">Gender</label>
+          <!-- <label for="gender">Gender</label> -->
         </div>
+        
 
         <div class="input-group">
           <input type="date" id="birth-date" name="birth-date" ngModel required />
           <label for="birth-date">Birth Date</label>
         </div>
+
+        
+          <div class="input-group">
+            <select id="gym" name="gym" [(ngModel)]="selectedGym" required>
+              <option value="" disabled selected hidden>Select Gynm</option>
+              <option *ngFor="let gym of gyms" [value]="gym.name">{{ gym.name }}</option>
+            </select>
+            <!-- <label for="gym">Select Gym</label> -->
+          </div>
+        
       </div>
+
 
       <div class="input-group">
         <input type="text" id="description" name="description" ngModel required placeholder=" " />
@@ -74,7 +86,7 @@
         <label for="terms">I agree to the Terms and Conditions</label>
       </div>
 
-      <button type="submit">Register</button>
+      <button type="submit" [disabled]="!registerForm.valid">Register</button>
     </form>
   </div>
 </div>

@@ -2,20 +2,37 @@ import { Component } from '@angular/core';
 import { RegisterService } from '../services/register.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
+import { GymsService } from '../services/gyms.service';
+import { gymModel } from '../shared/gymModel';
 @Component({
   selector: 'app-register-now',
-  imports: [NavBarComponent,FooterComponent,FormsModule],
+  imports: [NavBarComponent,FooterComponent,FormsModule,CommonModule],
   templateUrl: './register-now.component.html',
   styleUrls: ['./register-now.component.css']
 })
 export class RegisterNowComponent {
+  selectedGym=""
+  gyms : gymModel[] = [];
+  constructor(private registerService: RegisterService , private router : Router, private gymService : GymsService) {}
 
-  constructor(private registerService: RegisterService , private router : Router) {}
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.gymService.getGyms()
+    .subscribe({
+      next : (data) => this.gyms = data,
+      error : (err) => console.error("not able to get gyms",err)
+    })
+  }
 
-  onSubmit(form: any) {
+  onSubmit(form: NgForm) {
+    if (!form.valid){
+      console.warn("Please fill of the data that is required ");
+      return;
+    }
     const formData = {
       email: form.value.email,
       password: form.value.password,

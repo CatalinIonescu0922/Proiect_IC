@@ -63,6 +63,14 @@
     pointer-events: none;
   }
   
+  .input-group select:valid + label {
+    top: -10px;
+    left: 12px;
+    font-size: 12px;
+    background-color: #f3f1ed;
+    color: #8c7f76;
+    padding: 0 5px;
+  }
   .input-group input:focus + label,
   .input-group input:not(:placeholder-shown) + label,
   .input-group select:focus + label {
