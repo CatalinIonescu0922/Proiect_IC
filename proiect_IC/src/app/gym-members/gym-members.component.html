@@ -1,0 +1,21 @@
+<app-nav-bar></app-nav-bar>
+
+<h2>Members of {{ gymName }}</h2>
+
+<button (click)="goBack()" style="margin-bottom: 20px;">← Back to gyms</button>
+
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="!isLoading && members.length === 0">
+  No members found.
+</div>
+
+<div class="members-grid" *ngIf="members.length > 0">
+  <div class="member-card" *ngFor="let m of members">
+    <img [src]="m.profile_photo" alt="Profile photo" />
+    <p>{{ m.first_name }} {{ m.last_name }}</p>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { GymsComponent } from './gyms/gyms.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { GymUsersComponent } from './gym-users/gym-users.component';
+import { GymMembersComponent } from './gym-members/gym-members.component';
+
 export const routes: Routes = [
   { path: "", component: HomeComponentComponent },
   { path: "login", component: LoginComponent },
@@ -15,5 +17,7 @@ export const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   {path: "gyms",component:GymsComponent} ,
   {path : "gyms/:id",component:GymUsersComponent},
-  { path: "about-us",component:AboutUsComponent}
+  { path: "about-us",component:AboutUsComponent},
+  { path: 'gyms/:gymID/members', component: GymMembersComponent }
+
 ];
