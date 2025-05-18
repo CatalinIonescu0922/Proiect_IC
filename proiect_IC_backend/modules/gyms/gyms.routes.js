@@ -1,6 +1,7 @@
 import { getGymsController } from './gyms.controler.js';
 import express from 'express'
 import gymMembers from "../gymMembers/gymMembers.routes.js"
+import { authenticateToken } from '../../middleware/authenticateToken.js';
 
 const router = express.Router()
 
@@ -9,7 +10,7 @@ router.get("/",getGymsController);
 
 // handles the sub-route gyms/:gymID 
 
-router.use("/:gymID", gymMembers)
+router.use("/:gymID/members",authenticateToken ,gymMembers)
 
 
 /**
