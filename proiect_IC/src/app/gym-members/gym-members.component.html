@@ -1,20 +1,20 @@
 <app-nav-bar></app-nav-bar>
 
-<h2>Members of {{ gymName }}</h2>
+<div class="gym-members-wrapper">
+  <div class="gym-members-header">
+    <h2>Members of {{ gymName }}</h2>
+    <button (click)="goBack()">← Back to gyms</button>
+  </div>
 
-<button (click)="goBack()" style="margin-bottom: 20px;">← Back to gyms</button>
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="!isLoading && members.length === 0" class="no-members">No members found.</div>
 
-<div *ngIf="isLoading">Loading...</div>
-<div *ngIf="error">{{ error }}</div>
-
-<div *ngIf="!isLoading && members.length === 0">
-  No members found.
-</div>
-
-<div class="members-grid" *ngIf="members.length > 0">
-  <div class="member-card" *ngFor="let m of members">
-    <img [src]="m.profile_photo" alt="Profile photo" />
-    <p>{{ m.first_name }} {{ m.last_name }}</p>
+  <div class="members-grid" *ngIf="members.length > 0">
+    <div class="member-card" *ngFor="let m of members">
+      <img [src]="m.profile_photo" alt="Profile photo" />
+      <p>{{ m.first_name }} {{ m.last_name }}</p>
+    </div>
   </div>
 </div>
 

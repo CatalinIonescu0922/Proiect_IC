@@ -1,20 +1,80 @@
-.members-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.member-card {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 150px;
+.gym-members-wrapper {
+  padding: 60px 10vw;
+  background: linear-gradient(to right, #f2ece6, #e6dfd8);
+  min-height: calc(100vh - 160px);
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
+.gym-members-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.gym-members-header h2 {
+  font-size: 32px;
+  color: #2c2c2c;
+  margin-bottom: 15px;
+}
+
+.gym-members-header button {
+  background-color: #2c2c2c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.gym-members-header button:hover {
+  background-color: #444;
+}
+
+.loading,
+.error,
+.no-members {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.member-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 25px 15px;
+  text-align: center;
+  width: 180px;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
 .member-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.member-card p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
 }

@@ -12,6 +12,6 @@ export class GymMembersService {
   constructor(private http: HttpClient) {}
 
   getMembers(gymID: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/${gymID}/members`);
+    return this.http.get<User[]>(`${this.baseUrl}/${gymID}/members`,{withCredentials : true});
   }
 }

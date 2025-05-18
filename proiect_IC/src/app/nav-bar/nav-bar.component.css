@@ -37,6 +37,7 @@
   font-size: 16px;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .nav-links a:hover {

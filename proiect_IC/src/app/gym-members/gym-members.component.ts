@@ -34,7 +34,8 @@ export class GymMembersComponent implements OnInit {
         this.members = data;
         this.isLoading = false;
       },
-      error: () => {
+      error: (err) => {
+        this.router.navigate(["/login"])
         this.error = 'Could not load members.';
         this.isLoading = false;
       }
