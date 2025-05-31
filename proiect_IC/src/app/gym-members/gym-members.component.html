@@ -12,7 +12,7 @@
 
   <div class="members-grid" *ngIf="members.length > 0">
     <div class="member-card" *ngFor="let m of members">
-      <img [src]="m.profile_photo" alt="Profile photo" />
+      <img [src]="'http://localhost:3000/' + m.profile_photo" alt="Profile photo" />
       <p>{{ m.first_name }} {{ m.last_name }}</p>
     </div>
   </div>

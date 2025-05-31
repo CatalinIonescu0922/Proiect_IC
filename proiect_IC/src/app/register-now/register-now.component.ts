@@ -30,7 +30,6 @@ export class RegisterNowComponent {
   }
   onFileSelected(event : Event){
     const input  = event.target as HTMLInputElement
-
     if(input.files && input.files.length > 0){
       this.selectedPhotoProfile = input.files[0];   
     } else{
@@ -42,6 +41,7 @@ export class RegisterNowComponent {
       console.warn("Please fill of the data that is required ");
       return;
     }
+    
     const formDataToSend = new FormData();
     formDataToSend.append('email', form.value.email);
     formDataToSend.append('password', form.value.password);
@@ -53,12 +53,10 @@ export class RegisterNowComponent {
     formDataToSend.append('PR_leg_press', String(form.value['pr-leg-press']));
     formDataToSend.append('description', form.value.description);
     formDataToSend.append('gender', form.value.gender);
-    console.log(formDataToSend);
-
     if (this.selectedPhotoProfile){
       formDataToSend.append('profile_photo', this.selectedPhotoProfile, this.selectedPhotoProfile.name)
     }
-
+    formDataToSend.append('gym_id',this.selectedGym)
 
     this.registerService.registerUser(formDataToSend).subscribe({
       next: (response) => {

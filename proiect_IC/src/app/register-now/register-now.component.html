@@ -62,7 +62,7 @@
           <div class="input-group">
             <select id="gym" name="gym" [(ngModel)]="selectedGym" required>
               <option value="" disabled selected hidden>Select Gynm</option>
-              <option *ngFor="let gym of gyms" [value]="gym.name">{{ gym.name }}</option>
+              <option *ngFor="let gym of gyms" [value]="gym.id">{{ gym.name }}</option>
             </select>
            
           </div>

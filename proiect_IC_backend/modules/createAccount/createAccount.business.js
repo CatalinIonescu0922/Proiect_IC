@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-import { findUserByEmail, createUser, assignDefaultRole } from './createAccount.model.js';
+import { findUserByEmail, createUser, assignDefaultRole, addUserTogym } from './createAccount.model.js';
 
 // Multer storage config (same as your setup)
 const storage = multer.diskStorage({
@@ -53,7 +53,8 @@ export async function createAccountBusiness(req, res) {
       PR_bench_press,
       PR_leg_press,
       description,
-      gender
+      gender,
+      gym_id
     } = req.body;
 
     // Check if email already exists
@@ -88,5 +89,6 @@ export async function createAccountBusiness(req, res) {
 
     // Assign default role
     await assignDefaultRole(newUserId);
+    await addUserTogym(newUserId,gym_id);
 
 }

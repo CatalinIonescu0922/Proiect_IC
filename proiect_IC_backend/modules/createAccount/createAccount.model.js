@@ -8,6 +8,16 @@ export async function findUserByEmail(email) {
 
   return users[0] || null;
 }
+export async function addUserTogym(userID,gymID){
+  await db.pool.query(`INSERT INTO Gym_users
+  (gym_id,user_id)
+  VALUES (?, ?)`,
+  [
+    gymID,
+    userID
+  ]
+   )
+}
 
 export async function createUser(userData) {
   const result = await db.pool.query(
@@ -31,10 +41,7 @@ export async function createUser(userData) {
   
   return result.insertId;
 }
-export async function getLastUserID(){
-  const lastId = await db.pool.query("Select id from Users ORDER BY id DESC LIMIT 1");
-  return lastId
-}
+
 export async function assignDefaultRole(userId) {
   const defaultRoleId = 2; // Normal user role
 
