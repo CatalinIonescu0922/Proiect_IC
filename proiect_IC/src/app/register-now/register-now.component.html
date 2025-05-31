@@ -14,6 +14,16 @@
           <input type="text" id="last-name" name="last-name" ngModel required placeholder=" " />
           <label for="last-name">Last Name</label>
         </div>
+        <div class="input-group photo-upload">
+          <input 
+            type="file"
+            id="profile-photo"
+            name="profile-photo"
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            placeholder=" "
+          />
+        </div>
       </div>
 
       <div class="input-group">
@@ -40,7 +50,6 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-          <!-- <label for="gender">Gender</label> -->
         </div>
         
 
@@ -55,7 +64,7 @@
               <option value="" disabled selected hidden>Select Gynm</option>
               <option *ngFor="let gym of gyms" [value]="gym.name">{{ gym.name }}</option>
             </select>
-            <!-- <label for="gym">Select Gym</label> -->
+           
           </div>
         
       </div>

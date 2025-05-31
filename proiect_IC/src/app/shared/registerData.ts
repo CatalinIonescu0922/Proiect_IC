@@ -1,4 +1,5 @@
 export interface RegisterData {
+  id : number;
   email: string;
   first_name: string;
   last_name: string;
@@ -8,5 +9,5 @@ export interface RegisterData {
   PR_leg_press: number;
   description: string;
   gender: string;
-//   photos : string[];
+  profile_photo : string;
 }

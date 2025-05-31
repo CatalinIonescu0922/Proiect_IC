@@ -25,7 +25,6 @@ export class LoginComponent {
 
     this.loginService.loginUser(loginData).subscribe({
       next: (res) => {
-        alert('Login successful!');
         this.router.navigate(['/profile']); // or wherever you want to send user
       },
       error: (err) => {

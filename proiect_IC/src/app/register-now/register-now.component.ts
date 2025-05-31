@@ -16,6 +16,7 @@ import { gymModel } from '../shared/gymModel';
 export class RegisterNowComponent {
   selectedGym=""
   gyms : gymModel[] = [];
+  selectedPhotoProfile? : File
   constructor(private registerService: RegisterService , private router : Router, private gymService : GymsService) {}
 
   ngOnInit(): void {
@@ -27,26 +28,39 @@ export class RegisterNowComponent {
       error : (err) => console.error("not able to get gyms",err)
     })
   }
+  onFileSelected(event : Event){
+    const input  = event.target as HTMLInputElement
 
+    if(input.files && input.files.length > 0){
+      this.selectedPhotoProfile = input.files[0];   
+    } else{
+      this.selectedPhotoProfile = undefined;
+    }
+  }
   onSubmit(form: NgForm) {
     if (!form.valid){
       console.warn("Please fill of the data that is required ");
       return;
     }
-    const formData = {
-      email: form.value.email,
-      password: form.value.password,
-      first_name: form.value['first-name'],
-      last_name: form.value['last-name'],
-      birth_day: form.value['birth-date'],
-      PR_arm: Number(form.value['pr-arm']),
-      PR_bench_press: Number(form.value['pr-bench-press']),
-      PR_leg_press: Number(form.value['pr-leg-press']),
-      description: form.value.description,
-      gender: form.value.gender
-    };
+    const formDataToSend = new FormData();
+    formDataToSend.append('email', form.value.email);
+    formDataToSend.append('password', form.value.password);
+    formDataToSend.append('first_name', form.value['first-name']);
+    formDataToSend.append('last_name', form.value['last-name']);
+    formDataToSend.append('birth_day', form.value['birth-date']);
+    formDataToSend.append('PR_arm', String(form.value['pr-arm']));
+    formDataToSend.append('PR_bench_press', String(form.value['pr-bench-press']));
+    formDataToSend.append('PR_leg_press', String(form.value['pr-leg-press']));
+    formDataToSend.append('description', form.value.description);
+    formDataToSend.append('gender', form.value.gender);
+    console.log(formDataToSend);
 
-    this.registerService.registerUser(formData).subscribe({
+    if (this.selectedPhotoProfile){
+      formDataToSend.append('profile_photo', this.selectedPhotoProfile, this.selectedPhotoProfile.name)
+    }
+
+
+    this.registerService.registerUser(formDataToSend).subscribe({
       next: (response) => {
         alert('Account created successfully!');
         this.router.navigate(['/login']);

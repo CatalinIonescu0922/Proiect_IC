@@ -12,8 +12,8 @@ export async function findUserByEmail(email) {
 export async function createUser(userData) {
   const result = await db.pool.query(
     `INSERT INTO Users
-     (email, password_hash, first_name, last_name, birth_day, PR_arm, PR_bench_press, PR_leg_press, description, gender)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+     (email, password_hash, first_name, last_name, birth_day, PR_arm, PR_bench_press, PR_leg_press, description, gender,profile_photo)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)`,
     [
       userData.email,
       userData.password_hash,
@@ -24,13 +24,17 @@ export async function createUser(userData) {
       userData.PR_bench_press,
       userData.PR_leg_press,
       userData.description,
-      userData.gender
+      userData.gender,
+      userData.profile_photo
     ]
   );
   
   return result.insertId;
 }
-
+export async function getLastUserID(){
+  const lastId = await db.pool.query("Select id from Users ORDER BY id DESC LIMIT 1");
+  return lastId
+}
 export async function assignDefaultRole(userId) {
   const defaultRoleId = 2; // Normal user role
 
