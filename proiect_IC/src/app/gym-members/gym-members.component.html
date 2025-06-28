@@ -12,8 +12,16 @@
 
   <div class="members-grid" *ngIf="members.length > 0">
     <div class="member-card" *ngFor="let m of members">
-      <img [src]="'http://localhost:3000/' + m.profile_photo" alt="Profile photo" />
+      <img *ngIf="m.profile_photo.length > 0" 
+      [src]="'http://localhost:3000/' + m.profile_photo" alt="Profile photo" />
       <p>{{ m.first_name }} {{ m.last_name }}</p>
+      <button class="send-req"
+        [disabled]="hasSentRequest(m.id)"
+        (click)="sendRequest(curentUserId, m.id)">
+        <i *ngIf="!hasSentRequest(m.id)" class="fa-solid fa-plus"></i>
+        <span *ngIf="!hasSentRequest(m.id)">Send Buddy Request</span>
+        <span *ngIf="hasSentRequest(m.id)">✅ Request Sent</span>
+      </button>
     </div>
   </div>
 </div>

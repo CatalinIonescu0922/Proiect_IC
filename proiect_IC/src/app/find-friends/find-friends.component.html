@@ -1,0 +1,65 @@
+<app-nav-bar></app-nav-bar>
+<div class="container" *ngIf="!isLoading; else loadingTemplate">
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  
+    <section class="requests-section">
+      <h2>Requests You Sent</h2>
+      <ul *ngIf="sentRequests.length > 0; else noSentRequests">
+        <li *ngFor="let req of sentRequests" class="request-item">
+          <img *ngIf="sentUsersMap[req.receiver_id].profile_photo.length>0"
+            class="profile-photo"
+            [src]="'http://localhost:3000/' + (sentUsersMap[req.receiver_id].profile_photo)"
+            alt="Receiver Photo"
+            loading="lazy"
+          />
+          <div class="user-info">
+            <p class="user-name">
+              {{ sentUsersMap[req.receiver_id].first_name }} {{ sentUsersMap[req.receiver_id].last_name }}
+            </p>
+            <p class="request-status">Status: <strong>{{ req.status | titlecase }}</strong></p>
+          </div>
+        </li>
+      </ul>
+      <ng-template #noSentRequests>
+        <p class="no-requests">You have not sent any requests yet.</p>
+      </ng-template>
+    </section>
+  
+    <section class="requests-section">
+      <h2>Requests You Received</h2>
+      <ul *ngIf="receivedRequests.length > 0; else noReceivedRequests">
+        <li *ngFor="let req of receivedRequests" class="request-item">
+          <img *ngIf="sentUsersMap[req.sender_id].profile_photo.length>0"
+            class="profile-photo"
+            [src]="'http://localhost:3000/' + (receivedUsersMap[req.sender_id].profile_photo)"
+            alt="Sender Photo"
+            loading="lazy"
+          />
+          <div class="user-info">
+            <p class="user-name">
+              {{ receivedUsersMap[req.sender_id].first_name }} {{ receivedUsersMap[req.sender_id].last_name }}
+            </p>
+            <p class="request-status">Status: <strong>{{ req.status | titlecase }}</strong></p>
+  
+            <div class="actions" *ngIf="req.status === 'pending'">
+                <button (click)="updateRequestStatus(req, 'accepted')">
+                    <i class="fa fa-check" aria-hidden="true"></i> Accept
+                  </button>
+                  
+                  <button (click)="updateRequestStatus(req, 'rejected')">
+                    <i class="fa fa-times" aria-hidden="true"></i> Reject
+                  </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ng-template #noReceivedRequests>
+        <p class="no-requests">You have no incoming requests.</p>
+      </ng-template>
+    </section>
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <div class="loading">Loading requests...</div>
+  </ng-template>
+  <app-footer></app-footer>

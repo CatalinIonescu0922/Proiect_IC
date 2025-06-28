@@ -9,6 +9,10 @@ import profileRoutes from './modules/profile/profile.routes.js'
 import gymRoutes from './modules/gyms/gyms.routes.js'
 import logOut from './middleware/logOut.js'
 import checkLogIn from "./middleware/verifyMe.js"
+import sendRequest from './modules/sendRequest/sendRequest.routes.js'
+import getAllUsers from './middleware/getUsersById.js'
+import * as allInfoFromReq from './middleware/receiveAllRequests.js'
+import updateRequestStatusHandler from './middleware/updateStatus.js'
 const app=express();
 const Router = express.Router()
 // parse everything in to json 
@@ -22,12 +26,17 @@ app.use(cors({
 }));
 app.use(Router)
 
-Router.use("/register-now", createAccountRoutes)
+Router.use("/register-now", createAccountRoutes);
 Router.use("/login" , authRoutes);
 Router.use("/profile",profileRoutes);
 Router.use("/gyms",gymRoutes);
 Router.use("/logout",logOut)
 Router.use("/check-log-in",checkLogIn);
+Router.use("/send-request",sendRequest);
+Router.use("/get-users",getAllUsers);
+Router.use("/all-send-req/:senderId",allInfoFromReq.getSentRequestsByUser)
+Router.use("/all-receive-req/:receiverId",allInfoFromReq.getReceivedRequestsByUser)
+Router.use("/requests/update-status",updateRequestStatusHandler)
 app.listen(config_obj.backend_port, ()=>{
     console.log(`app listen on port ${config_obj.backend_port}`)
-})
+})            

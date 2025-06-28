@@ -78,3 +78,31 @@
   color: #333;
   margin: 0;
 }
+.send-req {
+  background-color: #000; /* bold black */
+  color: #fff; /* white text */
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between icon and text */
+  margin-top: 20px;
+}
+
+.send-req i {
+  font-size: 1.1rem;
+}
+
+.send-req:hover {
+  background-color: #222; /* slightly lighter on hover */
+  transform: scale(1.03);
+}
+
+.send-req:active {
+  transform: scale(0.98);
+}

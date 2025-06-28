@@ -18,12 +18,18 @@ export class ProfileComponent implements OnInit{
   ngOnInit(): void {
      this.profileService.getProfile()
      .subscribe({
-        next : (data) => this.userData = data,
+        next : (data) => {
+          this.userData = data;
+          this.saveUserInLocalStorage();
+        }, 
         error : (err) => {
           if(err.status === 401){
             this.router.navigate(["/login"])
           }
         }
      });
+  }
+  saveUserInLocalStorage(){
+    localStorage.setItem("userID", `${this.userData?.id}`)
   }
 }

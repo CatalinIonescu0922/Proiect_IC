@@ -1,0 +1,124 @@
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  /* Section Titles */
+  h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  /* Lists */
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 40px 0;
+  }
+  
+  /* List Item */
+  .request-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+  }
+  
+  .request-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* User Profile Photo */
+  .profile-photo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+  }
+  
+  /* User Info Container */
+  .user-info {
+    flex-grow: 1;
+  }
+  
+  /* User Name */
+  .user-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+  }
+  
+  /* Request Status */
+  .request-status {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Actions Container */
+  .actions {
+    margin-top: 8px;
+  }
+  
+  /* Buttons */
+  button {
+    cursor: pointer;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: none;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+  
+  /* Accept Button */
+  .accept-btn {
+    background-color: #2e7d32;
+  }
+  
+  .accept-btn:hover {
+    background-color: #276229;
+  }
+  
+  /* Reject Button */
+  .reject-btn {
+    background-color: #c62828;
+  }
+  
+  .reject-btn:hover {
+    background-color: #9a2020;
+  }
+  
+  /* No Requests Message */
+  .no-requests {
+    color: #777;
+    font-style: italic;
+    padding: 10px 0;
+  }
+  
+  /* Error Message */
+  .error-message {
+    color: #d32f2f;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Loading Message */
+  .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 40px 0;
+  }
+  
